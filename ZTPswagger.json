@@ -9,7 +9,7 @@
     "version": "v2"
 
   },
-  "schemes":"HTTPS",
+  "schemes":{"https"}
 
   "paths": {
 
