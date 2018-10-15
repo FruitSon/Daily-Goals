@@ -7,11 +7,6 @@
   "schemes": [
     "https"
   ],
-   "contact": {
-    "name": "API Support",
-    "url": "https://ztp-api-management-test.azure-api.net",
-    "email": "ruguo@microsoft.com"
-  },
   "produces": [
     "application/json"
   ],
