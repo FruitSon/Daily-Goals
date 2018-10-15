@@ -7,7 +7,7 @@
   "schemes": [
     "https"
   ],
-  "servers": [
+  "baseurl": [
     {
       "url": "https://ztp-api-management-test.azure-api.net"
     }
