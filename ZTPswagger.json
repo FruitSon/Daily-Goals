@@ -9,8 +9,7 @@
     "version": "v2"
 
   },
-  "schemes":{"https"}
-
+  "schemes":["https"],
   "paths": {
 
     "/": {
