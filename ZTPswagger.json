@@ -7,7 +7,11 @@
   "schemes": [
     "https"
   ],
-
+   "contact": {
+    "name": "API Support",
+    "url": "http://www.swagger.io/support",
+    "email": "support@swagger.io"
+  },
   "produces": [
     "application/json"
   ],
