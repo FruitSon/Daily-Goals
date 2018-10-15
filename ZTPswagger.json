@@ -1,33 +1,20 @@
 {
-
   "swagger": "2.0",
-
   "info": {
-
-    "title": "Uber API",
-
-    "description": "Move your app forward with the Uber API",
-
-    "version": "1.0.0"
-
+    "title": "ZTP Test",
+    "version": "1_0_006500001_alpha_048a116d_17642557"
   },
-
-  "host": "api.uber.com",
-
   "schemes": [
-
     "https"
-
   ],
-
-  "basePath": "/v1",
-
+  "servers": [
+    {
+      "url": "https://ztp-api-management-test.azure-api.net"
+    }
+  ],
   "produces": [
-
     "application/json"
-
   ],
-
   "paths": {
 
     "/products": {
