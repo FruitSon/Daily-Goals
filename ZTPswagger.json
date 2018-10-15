@@ -1,271 +1,115 @@
 {
-  "openapi": "2.0",
+
+  "swagger": "2.0",
+
   "info": {
-    "title": "Swagger",
-    "version": "1_0_006500001_alpha_048a116d_17642557"
+
+    "title": "Simple API overview",
+
+    "version": "v2"
+
   },
-  "servers": [
-    {
-      "url": "https://ztp-api-management-test.azure-api.net"
-    }
-  ],
+
   "paths": {
-    "/WorkflowManagement/PlanningCycleDetailList": {
+
+    "/": {
+
       "get": {
-        "tags": [
-          "STRATUS"
+
+        "operationId": "listVersionsv2",
+
+        "summary": "List API versions",
+
+        "produces": [
+
+          "application/json"
+
         ],
-        "summary": "GetPlanningCycleDetailList",
-        "operationId": "getWorkflowManagementPlanningCycleDetailList",
+
         "responses": {
+
           "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.CycleDetailsResponse"
-                }
-              }
+
+            "description": "200 300 response",
+
+            "examples": {
+
+              "application/json": "{\n    \"versions\": [\n        {\n            \"status\": \"CURRENT\",\n            \"updated\": \"2011-01-21T11:33:21Z\",\n            \"id\": \"v2.0\",\n            \"links\": [\n                {\n                    \"href\": \"http://127.0.0.1:8774/v2/\",\n                    \"rel\": \"self\"\n                }\n            ]\n        },\n        {\n            \"status\": \"EXPERIMENTAL\",\n            \"updated\": \"2013-07-23T11:33:21Z\",\n            \"id\": \"v3.0\",\n            \"links\": [\n                {\n                    \"href\": \"http://127.0.0.1:8774/v3/\",\n                    \"rel\": \"self\"\n                }\n            ]\n        }\n    ]\n}"
+
             }
+
           },
-          "400": {
-            "description": "Bad request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
+
+          "300": {
+
+            "description": "200 300 response",
+
+            "examples": {
+
+              "application/json": "{\n    \"versions\": [\n        {\n            \"status\": \"CURRENT\",\n            \"updated\": \"2011-01-21T11:33:21Z\",\n            \"id\": \"v2.0\",\n            \"links\": [\n                {\n                    \"href\": \"http://127.0.0.1:8774/v2/\",\n                    \"rel\": \"self\"\n                }\n            ]\n        },\n        {\n            \"status\": \"EXPERIMENTAL\",\n            \"updated\": \"2013-07-23T11:33:21Z\",\n            \"id\": \"v3.0\",\n            \"links\": [\n                {\n                    \"href\": \"http://127.0.0.1:8774/v3/\",\n                    \"rel\": \"self\"\n                }\n            ]\n        }\n    ]\n}"
+
             }
+
           }
+
         }
+
       }
+
     },
-    "/WorkflowManagement/PlanningCycleStepDetailList": {
+
+    "/v2": {
+
       "get": {
-        "tags": [
-          "STRATUS"
+
+        "operationId": "getVersionDetailsv2",
+
+        "summary": "Show API version details",
+
+        "produces": [
+
+          "application/json"
+
         ],
-        "summary": "GetPlanningCycleStepDetailList",
-        "operationId": "getWorkflowManagementPlanningCycleStepDetailList",
+
         "responses": {
+
           "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.CycleStepDetailsResponse"
-                }
-              }
+
+            "description": "200 203 response",
+
+            "examples": {
+
+              "application/json": "{\n    \"version\": {\n        \"status\": \"CURRENT\",\n        \"updated\": \"2011-01-21T11:33:21Z\",\n        \"media-types\": [\n            {\n                \"base\": \"application/xml\",\n                \"type\": \"application/vnd.openstack.compute+xml;version=2\"\n            },\n            {\n                \"base\": \"application/json\",\n                \"type\": \"application/vnd.openstack.compute+json;version=2\"\n            }\n        ],\n        \"id\": \"v2.0\",\n        \"links\": [\n            {\n                \"href\": \"http://127.0.0.1:8774/v2/\",\n                \"rel\": \"self\"\n            },\n            {\n                \"href\": \"http://docs.openstack.org/api/openstack-compute/2/os-compute-devguide-2.pdf\",\n                \"type\": \"application/pdf\",\n                \"rel\": \"describedby\"\n            },\n            {\n                \"href\": \"http://docs.openstack.org/api/openstack-compute/2/wadl/os-compute-2.wadl\",\n                \"type\": \"application/vnd.sun.wadl+xml\",\n                \"rel\": \"describedby\"\n            },\n            {\n              \"href\": \"http://docs.openstack.org/api/openstack-compute/2/wadl/os-compute-2.wadl\",\n              \"type\": \"application/vnd.sun.wadl+xml\",\n              \"rel\": \"describedby\"\n            }\n        ]\n    }\n}"
+
             }
+
           },
-          "400": {
-            "description": "Bad request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
+
+          "203": {
+
+            "description": "200 203 response",
+
+            "examples": {
+
+              "application/json": "{\n    \"version\": {\n        \"status\": \"CURRENT\",\n        \"updated\": \"2011-01-21T11:33:21Z\",\n        \"media-types\": [\n            {\n                \"base\": \"application/xml\",\n                \"type\": \"application/vnd.openstack.compute+xml;version=2\"\n            },\n            {\n                \"base\": \"application/json\",\n                \"type\": \"application/vnd.openstack.compute+json;version=2\"\n            }\n        ],\n        \"id\": \"v2.0\",\n        \"links\": [\n            {\n                \"href\": \"http://23.253.228.211:8774/v2/\",\n                \"rel\": \"self\"\n            },\n            {\n                \"href\": \"http://docs.openstack.org/api/openstack-compute/2/os-compute-devguide-2.pdf\",\n                \"type\": \"application/pdf\",\n                \"rel\": \"describedby\"\n            },\n            {\n                \"href\": \"http://docs.openstack.org/api/openstack-compute/2/wadl/os-compute-2.wadl\",\n                \"type\": \"application/vnd.sun.wadl+xml\",\n                \"rel\": \"describedby\"\n            }\n        ]\n    }\n}"
+
             }
+
           }
+
         }
+
       }
-    },
-    "/WorkflowManagement/WorkItemStatus": {
-      "post": {
-        "tags": [
-          "STRATUS"
-        ],
-        "summary": "GetWorkItemStatus",
-        "operationId": "postWorkflowManagementWorkItemStatus",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.WorkItemStatusResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
+
     }
+
   },
-  "components": {
-    "schemas": {
-      "Mcio.Erp.Ztp.Management.Model.CycleDetailsResponse": {
-        "type": "object",
-        "properties": {
-          "details": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.PlanningCycleDetails"
-            }
-          }
-        }
-      },
-      "Mcio.Erp.Ztp.Management.Model.PlanningCycleDetails": {
-        "type": "object",
-        "properties": {
-          "planningCycle": {
-            "type": "string"
-          },
-          "workflow": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "cycleStart": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "timeElapsed": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "cycleCompleted": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        }
-      },
-      "Mcio.Erp.Ztp.Management.Model.CycleStepDetailsResponse": {
-        "type": "object",
-        "properties": {
-          "cycleDetails": {
-            "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.PlanningCycleDetails"
-          },
-          "stepDetails": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.PlanningCycleStepDetails"
-            }
-          }
-        }
-      },
-      "Mcio.Erp.Ztp.Management.Model.PlanningCycleStepDetails": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string"
-          },
-          "taskId": {
-            "type": "string"
-          },
-          "category": {
-            "type": "string"
-          },
-          "level": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "dueDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "status": {
-            "enum": [
-              "Undefined",
-              "New",
-              "Running",
-              "Completed",
-              "Failed",
-              "Skipped"
-            ],
-            "type": "string"
-          },
-          "role": {
-            "type": "string"
-          },
-          "relatedLinks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.Link"
-            }
-          },
-          "actions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.StepAction"
-            }
-          },
-          "startTime": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "endTime": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "elapsedTime": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true
-          }
-        }
-      },
-      "Mcio.Erp.Ztp.Management.Model.Link": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "link": {
-            "type": "string"
-          }
-        }
-      },
-      "Mcio.Erp.Ztp.Management.Model.StepAction": {
-        "type": "object",
-        "properties": {
-          "displayName": {
-            "type": "string"
-          },
-          "apiPath": {
-            "type": "string"
-          },
-          "apiMethod": {
-            "type": "string"
-          },
-          "apiBody": {
-            "type": "object"
-          }
-        }
-      },
-      "Mcio.Erp.Ztp.Management.Model.WorkItemStatusResponse": {
-        "type": "object",
-        "properties": {
-          "description": {
-            "type": "string"
-          },
-          "Microsoft_VSTS_Common_Priority": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "dynamicFields": {
-            "type": "array",
-            "items": { }
-          }
-        }
-      }
-    }
-  }
+
+  "consumes": [
+
+    "application/json"
+
+  ]
+
 }
