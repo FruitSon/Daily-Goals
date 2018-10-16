@@ -1,0 +1,56 @@
+{
+
+  "swagger": "2.0",
+
+  "info": {
+
+    "title": "ZTP Test",
+
+    "version": "1_0_006500001_alpha_048a116d_17642557"
+
+  },
+
+  "schemes": [
+
+    "https"
+
+  ],
+
+  "produces": [
+
+    "application/json"
+
+  ],
+
+    "paths": {
+
+    "/WorkflowManagement/PlanningCycleDetailList": {
+
+      "get": {
+
+        "tags": [
+
+          "STRATUS"
+
+        ],
+
+        "summary": "GetPlanningCycleDetailList",
+
+        "operationId": "getWorkflowManagementPlanningCycleDetailList",
+
+        "responses": {
+          "200": {
+            "description": "A list of pets.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/pet"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+        
