@@ -1,0 +1,543 @@
+{
+
+  "swagger": "2.0",
+
+  "info": {
+
+    "title": "ZTP Test",
+
+    "version": "1_0_006500001_alpha_048a116d_17642557"
+
+  },
+
+  "schemes": [
+
+    "https"
+
+  ],
+
+  "produces": [
+
+    "application/json"
+
+  ],
+
+    "paths": {
+
+    "/WorkflowManagement/PlanningCycleDetailList": {
+
+      "get": {
+
+        "tags": [
+
+          "STRATUS"
+
+        ],
+
+        "summary": "GetPlanningCycleDetailList",
+
+        "operationId": "getWorkflowManagementPlanningCycleDetailList",
+
+        "responses": {
+
+          "200": {
+
+            "description": "",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.CycleDetailsResponse"
+
+                }
+
+              }
+
+            }
+
+          },
+
+          "400": {
+
+            "description": "Bad request",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "type": "string"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/WorkflowManagement/PlanningCycleStepDetailList": {
+
+      "get": {
+
+        "tags": [
+
+          "STRATUS"
+
+        ],
+
+        "summary": "GetPlanningCycleStepDetailList",
+
+        "operationId": "getWorkflowManagementPlanningCycleStepDetailList",
+
+        "responses": {
+
+          "200": {
+
+            "description": "",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.CycleStepDetailsResponse"
+
+                }
+
+              }
+
+            }
+
+          },
+
+          "400": {
+
+            "description": "Bad request",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "type": "string"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/WorkflowManagement/WorkItemStatus": {
+
+      "post": {
+
+        "tags": [
+
+          "STRATUS"
+
+        ],
+
+        "summary": "GetWorkItemStatus",
+
+        "operationId": "postWorkflowManagementWorkItemStatus",
+
+        "responses": {
+
+          "200": {
+
+            "description": "",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.WorkItemStatusResponse"
+
+                }
+
+              }
+
+            }
+
+          },
+
+          "400": {
+
+            "description": "Bad request",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "type": "string"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  },
+
+  "components": {
+
+    "schemas": {
+
+      "Mcio.Erp.Ztp.Management.Model.CycleDetailsResponse": {
+
+        "type": "object",
+
+        "properties": {
+
+          "details": {
+
+            "type": "array",
+
+            "items": {
+
+              "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.PlanningCycleDetails"
+
+            }
+
+          }
+
+        }
+
+      },
+
+      "Mcio.Erp.Ztp.Management.Model.PlanningCycleDetails": {
+
+        "type": "object",
+
+        "properties": {
+
+          "planningCycle": {
+
+            "type": "string"
+
+          },
+
+          "workflow": {
+
+            "type": "string"
+
+          },
+
+          "name": {
+
+            "type": "string"
+
+          },
+
+          "cycleStart": {
+
+            "type": "string",
+
+            "format": "date-time"
+
+          },
+
+          "timeElapsed": {
+
+            "type": "integer",
+
+            "format": "int64"
+
+          },
+
+          "cycleCompleted": {
+
+            "type": "string",
+
+            "format": "date-time",
+
+            "nullable": true
+
+          }
+
+        }
+
+      },
+
+      "Mcio.Erp.Ztp.Management.Model.CycleStepDetailsResponse": {
+
+        "type": "object",
+
+        "properties": {
+
+          "cycleDetails": {
+
+            "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.PlanningCycleDetails"
+
+          },
+
+          "stepDetails": {
+
+            "type": "array",
+
+            "items": {
+
+              "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.PlanningCycleStepDetails"
+
+            }
+
+          }
+
+        }
+
+      },
+
+      "Mcio.Erp.Ztp.Management.Model.PlanningCycleStepDetails": {
+
+        "type": "object",
+
+        "properties": {
+
+          "title": {
+
+            "type": "string"
+
+          },
+
+          "taskId": {
+
+            "type": "string"
+
+          },
+
+          "category": {
+
+            "type": "string"
+
+          },
+
+          "level": {
+
+            "type": "integer",
+
+            "format": "int32"
+
+          },
+
+          "dueDate": {
+
+            "type": "string",
+
+            "format": "date-time",
+
+            "nullable": true
+
+          },
+
+          "status": {
+
+            "enum": [
+
+              "Undefined",
+
+              "New",
+
+              "Running",
+
+              "Completed",
+
+              "Failed",
+
+              "Skipped"
+
+            ],
+
+            "type": "string"
+
+          },
+
+          "role": {
+
+            "type": "string"
+
+          },
+
+          "relatedLinks": {
+
+            "type": "array",
+
+            "items": {
+
+              "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.Link"
+
+            }
+
+          },
+
+          "actions": {
+
+            "type": "array",
+
+            "items": {
+
+              "$ref": "#/components/schemas/Mcio.Erp.Ztp.Management.Model.StepAction"
+
+            }
+
+          },
+
+          "startTime": {
+
+            "type": "string",
+
+            "format": "date-time",
+
+            "nullable": true
+
+          },
+
+          "endTime": {
+
+            "type": "string",
+
+            "format": "date-time",
+
+            "nullable": true
+
+          },
+
+          "elapsedTime": {
+
+            "type": "integer",
+
+            "format": "int64",
+
+            "nullable": true
+
+          }
+
+        }
+
+      },
+
+      "Mcio.Erp.Ztp.Management.Model.Link": {
+
+        "type": "object",
+
+        "properties": {
+
+          "name": {
+
+            "type": "string"
+
+          },
+
+          "link": {
+
+            "type": "string"
+
+          }
+
+        }
+
+      },
+
+      "Mcio.Erp.Ztp.Management.Model.StepAction": {
+
+        "type": "object",
+
+        "properties": {
+
+          "displayName": {
+
+            "type": "string"
+
+          },
+
+          "apiPath": {
+
+            "type": "string"
+
+          },
+
+          "apiMethod": {
+
+            "type": "string"
+
+          },
+
+          "apiBody": {
+
+            "type": "object"
+
+          }
+
+        }
+
+      },
+
+      "Mcio.Erp.Ztp.Management.Model.WorkItemStatusResponse": {
+
+        "type": "object",
+
+        "properties": {
+
+          "description": {
+
+            "type": "string"
+
+          },
+
+          "Microsoft_VSTS_Common_Priority": {
+
+            "type": "integer",
+
+            "format": "int32"
+
+          },
+
+          "dynamicFields": {
+
+            "type": "array",
+
+            "items": { }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
